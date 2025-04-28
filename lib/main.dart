@@ -3,7 +3,6 @@ import 'package:provider/provider.dart';
 import 'package:tech_taste/ui/_core/app_theme.dart';
 import 'package:tech_taste/ui/splash/splash_screen.dart';
 import 'data/restaurant_data.dart';
-import 'model/restaurant.dart';
 
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();
