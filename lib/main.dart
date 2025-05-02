@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:tech_taste/ui/_core/app_theme.dart';
+import 'package:tech_taste/ui/_core/bag_provider.dart';
 import 'package:tech_taste/ui/splash/splash_screen.dart';
 import 'data/restaurant_data.dart';
 
@@ -10,8 +11,10 @@ void main() async{
   await restaurantData.getRestaurants();
   runApp(MultiProvider(providers: [ChangeNotifierProvider(create: (context) {
     return restaurantData;
-  })]
-  , child: MyApp(),),);
+  }),
+  ChangeNotifierProvider(create: (context) => BagProvider()),
+  ],
+  child: MyApp(),),);
 }
 
 class MyApp extends StatelessWidget {
@@ -20,6 +23,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       theme: AppTheme.appTheme,
       home: SplashScreen(),);
   }
